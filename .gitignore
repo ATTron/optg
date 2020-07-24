@@ -1,0 +1,4 @@
+.vscode
+optg_build/*
+*.csv
+bin

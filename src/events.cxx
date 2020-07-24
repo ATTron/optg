@@ -1,0 +1,47 @@
+#include <string>
+#include <map>
+#include "events.h"
+using namespace std;
+
+map<string,string> events {
+    {"CONST", "Body Constants"},
+    {"PERIAP", "Periapsis"},
+    {"PERDRG", "Periapsis w/ Drag"},
+    {"PERDTV", "Periapsis w/ Drag ∆V and MAX-Q"},
+    {"PERDVC", "Periapsis w/ Drag ∆V and MAX-Q Centroid"},
+    {"APOAP", "Apoapsis"},
+    {"APOAPP", "Apoapsis w/ Orbit Period"},
+    {"EOCCAB", "Begin Atmosphere Geocentric Occultation"},
+    {"EOCCAE", "End Atmosphere Geocentric Occultation"},
+    {"EOCCA", "Atmosphere Geocentric Occultation"},
+    {"SOCCAB", "Begin Atmosphere Heliocentric Occultation"},
+    {"SOCCAE", "End Atmosphere Heliocentric Occultation"},
+    {"SOCCA", "Atmosphere Heliocentric Occultation"},
+    {"EOCCSB", "Begin Surface Geocentric Occultation"},
+    {"EOCCSE", "End Surface Geocentric Occultation"},
+    {"EOCCS", "Surface Geocentric Occultation"},
+    {"SOCCSB", "Begin Surface Heliocentric Occultation"},
+    {"SOCCSE", "End Surface Heliocentric Occultation"},
+    {"SOCCS", "Surface Heliocentric Occultation"},
+    {"AEQUAX", "Ascending Equator Crossing"},
+    {"ALATXT", "Ascending Latitude Crossing w/ True Solar Time"},
+    {"DEQUAX", "Descending Equator Crossing w/ Mean Solar Time"},
+    {"DEQUXT", "Descending Equator Crossing w/ True Solar Time"},
+    {"DLATXT", "Descending Latitude Crossing w/ True Solar Time"},
+    {"DLTERM", "Dark to Light Terminator Crossing"},
+    {"LDTERM", "Light to Dark Teerminator Crossing"},
+    {"NPOLEX", "North Polar Minimum Slant Range Crossing"},
+    {"SPOLEX", "South Polar Minimum Slant Range Crossing"},
+    {"MAXDYN", "Maximum Dynamic Pressure"},
+    {"MAXDNC", "Maximum Dynamic Pressure Centroid"},
+    {"SCONB", "Being Superior Conjunction"},
+    {"SCONE", "End Supeerior Conjunction"},
+    {"SCON", "Supeerior Conjunction"},
+    {"ICONB", "Begin Inferior Conjunction"},
+    {"ICONE", "End Inferior Conjunction"},
+    {"ICON", "Inferior Conjunction"},
+    {"SCONJ", "User Input Sun-Earth-Probe Angle Crossing During Superior Conjunction"},
+    {"ICONJ", "User Input Sun-Earth-Probe Angle Crossing During Inferior Conjunction"},
+    {"SCONM", "Minimum Sun-Earth-Probe Angle During Superior Conjunction"},
+    {"ICONM", "Minimum Sun-Earth-Probe Angle During Inferior Conjunction"}
+};
