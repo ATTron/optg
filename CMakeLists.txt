@@ -1,6 +1,13 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.12)
 
 project(OPTG VERSION 1.0 HOMEPAGE_URL \"https://github.com/attron\")
+
+# check g++ version >= 4.9
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.9)
+        message(FATAL_ERROR "GCC Version must be at least 4.9!  " ${CMAKE_CXX_COMPILER_VERSION})
+    endif()
+endif()
 
 ## use c++ 11 standard
 set(CMAKE_CXX_STANDARD 11)

@@ -4,7 +4,6 @@
 #include <fstream>
 #include <regex>
 #include <algorithm>
-#include <iomanip>
 #include <OPTGConfig.h>
 #include <block.h>
 #include <events.h>
