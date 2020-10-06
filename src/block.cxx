@@ -63,7 +63,7 @@ std::string Block::get_sun_earth_probe_angle() {
 }
 
 std::string Block::get_event_data() {
-    return "{" + event_data + "}";
+    return "{\"event-data\":\"" + event_data + "\"}";
 }
 
 std::string Block::get_all_info() {
