@@ -26,3 +26,6 @@ This script will read in a valid OPTG file and return a CSV of all the events co
 ***
 ## Test Data
 You can find available OPTG files from [JPL](https://naif.jpl.nasa.gov/pub/naif/).
+
+An example output file using https://naif.jpl.nasa.gov/pub/naif/ORX/misc/optg/orx_optg_190201_190228_190225_od102_v1.txt 
+can be found under the examples directory

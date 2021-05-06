@@ -27,6 +27,7 @@ map<string,string> events {
     {"ALATXT", "Ascending Latitude Crossing w/ True Solar Time"},
     {"DEQUAX", "Descending Equator Crossing w/ Mean Solar Time"},
     {"DEQUXT", "Descending Equator Crossing w/ True Solar Time"},
+    {"AEQUXT", "Ascending Equator Crossing w/ True Solar Time"},
     {"DLATXT", "Descending Latitude Crossing w/ True Solar Time"},
     {"DLTERM", "Dark to Light Terminator Crossing"},
     {"LDTERM", "Light to Dark Teerminator Crossing"},
