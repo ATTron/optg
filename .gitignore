@@ -1,3 +1,5 @@
 .vscode
 optg_build/*
 bin
+cmake-build-debug/*
+.idea/*

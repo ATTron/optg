@@ -16,17 +16,16 @@ void processBlock(string *block);
 void readHeader(string *header);
 void listEvents();
 bool checkEvents(Block *block);
-void exportToCSV();
+void exportToCSV(string *filename);
 
 vector<Block> allBlocks {};
-vector<Block> pendingBlocks {};
 
 int main(int argc, char** argv) {
     string filename {argv[1]};
     fileInfo();
     processFile(&filename);
     // listEvents();
-    exportToCSV();
+    exportToCSV(&filename);
     return 0; 
 }
 
@@ -98,10 +97,12 @@ void listEvents() {
     }
 }
 
-void exportToCSV() {
+void exportToCSV(string *filename) {
     std::ofstream exportedFile;
+    size_t extension = filename->find_last_of(".");
+    string fnOnly = filename->substr(0, extension);
 
-    exportedFile.open("optg_exported.csv");
+    exportedFile.open("optg_" + fnOnly + "_exported.csv");
     exportedFile << "event_name,description,object_name,event_time,orbit_number,periap_time,event_data\n";
     for (Block b : allBlocks) {
         exportedFile << b.get_event_name() << "," << b.get_description() << "," << b.get_obj_name() << "," << b.get_sc_evt_time()
