@@ -63,6 +63,12 @@ std::string Block::get_sun_earth_probe_angle() {
 }
 
 std::string Block::get_event_data() {
+    if (isspace(event_data.at(0))) {
+        event_data = event_data.substr(1);
+    }
+    if (!event_data.empty() && isspace(event_data.at(event_data.size() - 1))) {
+        event_data = event_data.substr(0, event_data.length() - 1);
+    }
     return "{\"event-data\":\"" + event_data + "\"}";
 }
 
