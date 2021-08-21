@@ -1,10 +1,11 @@
 #include <algorithm>
 #include <string>
 #include <sstream>
+#include <utility>
 #include <block.h>
 #include <events.h>
 
-Block::Block(std::string this_block): block(this_block) {
+Block::Block(std::string this_block): block(std::move(this_block)) {
     Block::set_block(block);
 }
 
@@ -18,10 +19,10 @@ void Block::set_block(std::string block) {
 }
 
 void Block::set_event_name(std::string evt_name) {
-    event_name = evt_name;
+    event_name = std::move(evt_name);
 }
 
-void Block::set_description(std::string desc) {
+void Block::set_description(const std::string& desc) {
     auto it = events.find(desc);
     description = it->second;
 }
@@ -63,7 +64,13 @@ std::string Block::get_sun_earth_probe_angle() {
 }
 
 std::string Block::get_event_data() {
-    return "{\"event-data\":\"" + event_data + "\"}";
+    if (isspace(event_data.at(0))) {
+        event_data = event_data.substr(1);
+    }
+    if (!event_data.empty() && isspace(event_data.at(event_data.size() - 1))) {
+        event_data = event_data.substr(0, event_data.length() - 1);
+    }
+    return R"({"event_data":")" + event_data + "\"}";
 }
 
 std::string Block::get_all_info() {

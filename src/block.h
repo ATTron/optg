@@ -16,7 +16,7 @@ class Block {
         // setters
         void set_block(std::string block);
         void set_event_name(std::string evt_name);
-        void set_description(std::string desc);
+        void set_description(const std::string& desc);
 
         // getters
         std::string get_event_name();
