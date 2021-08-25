@@ -70,10 +70,19 @@ std::string Block::get_event_data() {
     if (!event_data.empty() && isspace(event_data.at(event_data.size() - 1))) {
         event_data = event_data.substr(0, event_data.length() - 1);
     }
-    return R"({"event_data":")" + event_data + "\"}";
+    if (event_data.empty()) {
+        return R"({})";
+    }
+    replace(event_data.begin(), event_data.end(), ' ', '|');
+    return R"({'event_data':')" + event_data + "'}";
 }
 
 std::string Block::get_all_info() {
     return get_event_name() + " " + get_obj_name() + " " + get_sc_evt_time() + " " + get_doy() + " " + get_et_utc() 
     + " " + get_orbit_num() + " " + get_plus_minus_periap() + " " + get_sun_earth_probe_angle();
+}
+
+std::string Block::build_output() {
+    return get_event_name() + "," + get_description() + "," + get_obj_name() + "," + get_sc_evt_time()
+    + "," + get_orbit_num() + "," + get_plus_minus_periap() + "," + get_event_data() + "\n";
 }
