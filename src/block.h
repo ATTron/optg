@@ -30,6 +30,7 @@ class Block {
         std::string get_sun_earth_probe_angle();
         std::string get_event_data();
         std::string get_all_info();
+        std::string build_output();
 };
 
 #endif

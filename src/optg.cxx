@@ -103,8 +103,7 @@ void exportToCSV(string *filename) {
     exportedFile.open("optg_" + fnOnly + "_exported.csv");
     exportedFile << "event_name,description,object_name,event_time,orbit_number,periap_time,event_data\n";
     for (Block b : allBlocks) {
-        exportedFile << b.get_event_name() << "," << b.get_description() << "," << b.get_obj_name() << "," << b.get_sc_evt_time()
-            << "," << b.get_orbit_num() << "," << b.get_plus_minus_periap() << "," << b.get_event_data() << "\n";
+        exportedFile << b.build_output();
     }
     exportedFile.close();
 }
