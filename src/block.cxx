@@ -4,6 +4,8 @@
 #include <utility>
 #include <block.h>
 #include <events.h>
+#include "block.h"
+
 
 Block::Block(std::string this_block): block(std::move(this_block)) {
     Block::set_block(block);
@@ -16,10 +18,6 @@ void Block::set_block(std::string block) {
     stream >> event_name >> obj_name >> sc_evt_time >> doy >> et_utc >> orbit_num >> plus_minus_periap >> sun_earth_probe_angle;
     getline(stream, event_data);
     Block::set_description(event_name);
-}
-
-void Block::set_event_name(std::string evt_name) {
-    event_name = std::move(evt_name);
 }
 
 void Block::set_description(const std::string& desc) {

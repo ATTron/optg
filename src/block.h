@@ -11,11 +11,10 @@ class Block {
         std::string event_name, description, obj_name, sc_evt_time, doy, et_utc, orbit_num, plus_minus_periap, sun_earth_probe_angle, event_data {};
 
     public:
-        Block(std::string this_block);
+        explicit Block(std::string this_block);
 
         // setters
         void set_block(std::string block);
-        void set_event_name(std::string evt_name);
         void set_description(const std::string& desc);
 
         // getters
