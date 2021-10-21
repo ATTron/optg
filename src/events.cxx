@@ -1,8 +1,7 @@
 #include <string>
 #include <map>
-using namespace std;
 
-map<string,string> events {
+std::map<std::string,std::string> events {
     {"CONST", "Body Constants"},
     {"PERIAP", "Periapsis"},
     {"PERDRG", "Periapsis w/ Drag"},

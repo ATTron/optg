@@ -4,6 +4,8 @@
 #include <utility>
 #include <block.h>
 #include <events.h>
+#include "block.h"
+
 
 Block::Block(std::string this_block): block(std::move(this_block)) {
     Block::set_block(block);
@@ -16,10 +18,6 @@ void Block::set_block(std::string block) {
     stream >> event_name >> obj_name >> sc_evt_time >> doy >> et_utc >> orbit_num >> plus_minus_periap >> sun_earth_probe_angle;
     getline(stream, event_data);
     Block::set_description(event_name);
-}
-
-void Block::set_event_name(std::string evt_name) {
-    event_name = std::move(evt_name);
 }
 
 void Block::set_description(const std::string& desc) {
@@ -70,10 +68,19 @@ std::string Block::get_event_data() {
     if (!event_data.empty() && isspace(event_data.at(event_data.size() - 1))) {
         event_data = event_data.substr(0, event_data.length() - 1);
     }
-    return R"({"event_data":")" + event_data + "\"}";
+    if (event_data.empty()) {
+        return R"({})";
+    }
+    replace(event_data.begin(), event_data.end(), ' ', '|');
+    return R"({'event_data':')" + event_data + "'}";
 }
 
 std::string Block::get_all_info() {
     return get_event_name() + " " + get_obj_name() + " " + get_sc_evt_time() + " " + get_doy() + " " + get_et_utc() 
     + " " + get_orbit_num() + " " + get_plus_minus_periap() + " " + get_sun_earth_probe_angle();
+}
+
+std::string Block::build_output() {
+    return get_event_name() + "," + get_description() + "," + get_obj_name() + "," + get_sc_evt_time()
+    + "," + get_orbit_num() + "," + get_plus_minus_periap() + "," + get_event_data() + "\n";
 }
